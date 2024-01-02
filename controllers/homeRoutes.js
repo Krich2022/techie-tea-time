@@ -44,7 +44,7 @@ router.get("/event/*", async (req, res) => {
 
 router.get("/home", async (req, res) => {
   try {
-    res.render("search", {
+    res.render("home", {
       logged_in: req.session.logged_in,
       search: true,
     });
