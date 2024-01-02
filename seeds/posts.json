@@ -1,0 +1,17 @@
+[
+  {
+    "title": "My First Adventure",
+    "content": "Just had my first skydiving experience! The rush was incredible, and the view from up there was breathtaking. Can't wait to do it again!",
+    "user_id": 1
+  },
+  {
+    "title": "A Culinary Delight",
+    "content": "Experimented with a new recipe today. The kitchen smelled amazing, and the dish turned out to be a delightful surprise. Excited to share the recipe with you all!",
+    "user_id": 2
+  },
+  {
+    "title": "Reflecting on Nature",
+    "content": "Spent the day hiking through a beautiful forest. Nature has a way of making you feel alive and connected. Feeling grateful for the simple joys of life.",
+    "user_id": 3
+  }
+]

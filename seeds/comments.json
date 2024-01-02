@@ -1,0 +1,47 @@
+[
+  {
+    "content": "Wow, your skydiving experience sounds incredible! I've always wanted to try it. How did you gather the courage to jump?",
+    "user_id": 2,
+    "post_id": 1
+  },
+  {
+    "content": "The recipe sounds delicious! Could you share the details? I'm always looking for new dishes to try in the kitchen.",
+    "user_id": 3,
+    "post_id": 2
+  },
+  {
+    "content": "Hiking in the forest is such a refreshing experience. Which trail did you take? I'm looking for new places to explore!",
+    "user_id": 1,
+    "post_id": 3
+  },
+  {
+    "content": "I've been thinking about trying skydiving too! Any tips for a first-timer?",
+    "user_id": 1,
+    "post_id": 1
+  },
+  {
+    "content": "Your culinary adventures always inspire me! What's the secret ingredient in your latest recipe?",
+    "user_id": 2,
+    "post_id": 2
+  },
+  {
+    "content": "Nature walks are my favorite. Which forest did you explore? I'd love to visit.",
+    "user_id": 3,
+    "post_id": 3
+  },
+  {
+    "content": "The thrill of jumping out of a plane must be unmatched! Tell me more about the skydiving experience.",
+    "user_id": 3,
+    "post_id": 1
+  },
+  {
+    "content": "Your culinary creations always make my mouth water! Can't wait to try the new recipe.",
+    "user_id": 1,
+    "post_id": 2
+  },
+  {
+    "content": "Hiking is such a great way to connect with nature. Any recommendations for scenic trails?",
+    "user_id": 2,
+    "post_id": 3
+  }
+]

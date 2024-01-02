@@ -1,0 +1,26 @@
+[
+  {
+    "username": "adventureLover87",
+    "email": "adventureLover87@example.com",
+    "password": "password1",
+    "name": "Alex Thompson"
+  },
+  {
+    "username": "foodieExplorer",
+    "email": "foodieExplorer@example.com",
+    "password": "password2",
+    "name": "Samantha Rodriguez"
+  },
+  {
+    "username": "natureEnthusiast",
+    "email": "natureEnthusiast@example.com",
+    "password": "password3",
+    "name": "Jordan Williams"
+  },
+  {
+    "username": "dev",
+    "email": "dev@dev.com",
+    "name": "dev",
+    "password": "asdf"
+  }
+]
