@@ -1,9 +1,6 @@
 const router = require("express").Router();
 
 router.get("/", async (req, res) => {
-  //if (!req.session.user) {
-  //  res.redirect('/dashboard');
-  //};
   try {
     res.render("login", {
       logged_in: req.session.logged_in,
@@ -14,9 +11,6 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/signup", async (req, res) => {
-  //if (!req.session.user) {
-  //  res.redirect('/dashboard');
-  //};
   try {
     res.render("signup", {
       logged_in: req.session.logged_in,
@@ -48,7 +42,7 @@ router.get("/event/*", async (req, res) => {
   }
 });
 
-router.get("/search", async (req, res) => {
+router.get("/home", async (req, res) => {
   try {
     res.render("search", {
       logged_in: req.session.logged_in,

@@ -15,7 +15,7 @@ const loginFormHandler = async (event) => {
       const userData = await response.json();
       console.log(userData);
       sessionStorage.setItem("user_id", userData.user_id);
-      document.location.replace("/dashboard");
+      document.location.replace("/home");
     } else {
       document.getElementById("loginError").classList.remove("hidden");
     }
@@ -38,7 +38,7 @@ const signupFormHandler = async (event) => {
       body: JSON.stringify({ username, email, password, name }),
     });
     if (response.ok) {
-      document.location.replace("/dashboard");
+      document.location.replace("/home");
     }
   } catch (error) {
     console.error("Error during registration:", error);
@@ -54,11 +54,11 @@ if (loginBtn) {
   signUpPage.addEventListener("click", () => {
     document.location.replace("/signup");
   });
-};
+}
 if (signUpBtn) {
   const loginPage = document.getElementById("loginHere");
   signUpBtn.addEventListener("click", signupFormHandler);
   loginPage.addEventListener("click", () => {
     document.location.replace("/");
   });
-};
+}
