@@ -32,7 +32,17 @@ const getPost = async () => {
       const deletePostButton = document.createElement("button");
       deletePostButton.textContent = "Delete Post";
       deletePostButton.onclick = deletePost;
-      document.getElementById("deletePost").appendChild(deletePostButton);
+      deletePostButton.id = "deletePost";
+      document
+        .getElementById("deletePostContainer")
+        .appendChild(deletePostButton);
+      const updatePostButton = document.createElement("button");
+      updatePostButton.textContent = "Update Post";
+      updatePostButton.id = "updatePost";
+      updatePostButton.onclick = updatePostForm;
+      document
+        .getElementById("updatePostContainer")
+        .appendChild(updatePostButton);
     }
 
     document.getElementById("title").textContent = postData.title;
@@ -78,6 +88,7 @@ const commentToPost = async (e) => {
 
     if (response.ok) {
       console.log("Comment successful");
+      location.reload();
     } else {
       console.error("Comment failed");
     }
@@ -96,8 +107,55 @@ const deletePost = async () => {
       throw new Error("Failed to delete post");
     }
     console.log("Post deleted successfully");
+    document.location.replace("/dashboard");
   } catch (error) {
     console.error("Error deleting post:", error.message);
+  }
+};
+
+const updatePostForm = async () => {
+  const title = document.getElementById("title");
+  const content = document.getElementById("description");
+
+  const updateTitle = document.createElement("input");
+  const updateContent = document.createElement("input");
+
+  for (const attribute of title.attributes) {
+    updateTitle.setAttribute(attribute.name, attribute.value);
+  }
+  for (const attribute of content.attributes) {
+    updateContent.setAttribute(attribute.name, attribute.value);
+  }
+
+  title.parentNode.replaceChild(updateTitle, title);
+  content.parentNode.replaceChild(updateContent, content);
+
+  const deletePostContainer = document.getElementById("deletePostContainer");
+  const updatePostBtn = document.getElementById("updatePost");
+
+  updatePostBtn.onclick = updatePost;
+  deletePostContainer.classList.add("hidden");
+};
+
+const updatePost = async () => {
+  try {
+    const updatePost = await fetch(`/api/post/${postId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: document.getElementById("updateTitle").value,
+        content: document.getElementById("updateContent").value,
+      }),
+    });
+
+    if (updatePost.ok) {
+      document.location.replace("/dashboard");
+    }
+  } catch (err) {
+    console.error(err);
+    // Handle the error appropriately, for example, show a user-friendly message
   }
 };
 

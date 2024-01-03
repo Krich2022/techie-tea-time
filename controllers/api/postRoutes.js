@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Post, Comment } = require("../../models");
+const { User, Post } = require("../../models");
 
 router.get("/", async (req, res) => {
   try {
@@ -10,7 +10,6 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 router.get("/user-posts", async (req, res) => {
   try {
     const userPost = await Post.findAll({
@@ -19,14 +18,15 @@ router.get("/user-posts", async (req, res) => {
       },
     });
 
-    if (!userPost.ok) {
+    if (!userPost || userPost.length === 0) {
       res.status(404).json({ message: "No Posts Found" });
       return;
     }
 
     res.status(200).json(userPost);
   } catch (err) {
-    res.status(500).json(err);
+    console.error(err);
+    res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
@@ -109,4 +109,30 @@ router.delete("/:id", async (req, res) => {
     return res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
+router.put("/:id", async (req, res) => {
+  try {
+    const [updatedRowsCount, updatedPosts] = await Post.update(
+      {
+        title: req.body.title,
+        content: req.body.content,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+
+    if (updatedRowsCount === 0) {
+      res.status(404).json({ message: "No Post Found" });
+      return;
+    }
+
+    res.status(200).json({ message: "Updated Post!" });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
