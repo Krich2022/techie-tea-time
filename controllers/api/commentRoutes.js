@@ -3,7 +3,7 @@ const { User, Post, Comment } = require("../../models");
 
 router.get("/:id", async (req, res) => {
   try {
-    const comments = await Comments.findAll({
+    const comments = await Comment.findAll({
       where: {
         post_id: req.params.id,
       },
