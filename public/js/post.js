@@ -38,7 +38,7 @@ const getPost = async () => {
     document.getElementById("title").textContent = postData.title;
 
     const descriptionElement = document.getElementById("description");
-    descriptionElement.innerHTML = `<p>${postData.content}<br><br>-${userData.name}`;
+    descriptionElement.innerHTML = `<p>${postData.content}<br><br>-${userData}`;
 
     let commentSection = "";
     for (let i = 0; i < commentData.length; i++) {
@@ -64,7 +64,7 @@ const commentToPost = async (e) => {
   e.preventDefault();
 
   try {
-    const response = await fetch(`/api/${postId}`, {
+    const response = await fetch(`/api/post/${postId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
