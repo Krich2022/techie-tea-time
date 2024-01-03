@@ -21,7 +21,7 @@ router.get("/post-by-id/:id", async (req, res) => {
 
     res.status(200).json(postData);
   } catch (err) {
-    console.err(err);
+    console.error(err);
     res.status(500).json(err);
   }
 });
@@ -47,7 +47,7 @@ router.post("/", async (req, res) => {
     });
     res.status(200).json({ message: "Post Created!" });
   } catch (err) {
-    console.err(err);
+    console.error(err);
     res.status(500).json(err);
   }
 });
@@ -86,7 +86,7 @@ router.delete("/:id", async (req, res) => {
 
     return res.status(200).json({ message: "Post deleted successfully!" });
   } catch (err) {
-    console.error(err);
+    console.erroror(err);
     return res.status(500).json({ error: "Internal Server Error" });
   }
 });
