@@ -5,6 +5,7 @@ const logout = async () => {
   });
 
   if (response.ok) {
+    sessionStorage.removeItem("user_id");
     document.location.replace("/");
   } else {
     alert(response.statusText);
