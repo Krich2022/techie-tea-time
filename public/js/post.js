@@ -1,6 +1,5 @@
 const pathArr = window.location.pathname.split("/");
 const postId = pathArr[pathArr.length - 1];
-document.getElementById("submitForm").addEventListener("click", commentToPost);
 
 const getPost = async () => {
   try {
@@ -103,3 +102,4 @@ const deletePost = async () => {
 };
 
 getPost();
+document.getElementById("submitForm").addEventListener("click", commentToPost);
