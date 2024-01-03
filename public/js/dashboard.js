@@ -2,7 +2,7 @@ const showPost = (e) => {
   window.location.href = `/post/${e}`;
 };
 const getAllPosts = async () => {
-  const event = await fetch("/api/posts/user-posts", {
+  const post = await fetch("/api/posts/user-posts", {
     method: "GET",
   });
   const postData = await post.json();
@@ -21,4 +21,4 @@ const getAllPosts = async () => {
   }
 };
 
-getAllEvent();
+getAllPosts();
