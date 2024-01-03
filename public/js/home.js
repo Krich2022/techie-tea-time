@@ -4,7 +4,7 @@ const showPost = (postId) => {
 
 const getAllPosts = async () => {
   try {
-    const postResponse = await fetch("/api/posts", {
+    const postResponse = await fetch("/api/post", {
       method: "GET",
     });
 
