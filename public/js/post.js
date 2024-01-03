@@ -1,7 +1,8 @@
 const pathArr = window.location.pathname.split("/");
 const postId = pathArr[pathArr.length - 1];
+document.getElementById("submitForm").addEventListener("click", commentToPost);
 
-const getEvent = async () => {
+const getPost = async () => {
   try {
     const post = await fetch(`/api/post/post-by-id/${postId}`, {
       method: "GET",
@@ -60,19 +61,29 @@ const getEvent = async () => {
   }
 };
 
-const commentToPost = async () => {
+const commentToPost = async (e) => {
+  e.preventDefault();
+
   try {
-    const response = await fetch(`/api/rsvp/${postId}`, {
+    const response = await fetch(`/api/${postId}`, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        content: document.getElementById("commentContent").value,
+        user_id: sessionStorage.getItem("user_id"),
+        post_id: postId,
+      }),
     });
 
     if (response.ok) {
-      console.log("RSVP successful");
+      console.log("Comment successful");
     } else {
-      console.error("RSVP failed");
+      console.error("Comment failed");
     }
   } catch (error) {
-    console.error("Error during RSVP:", error);
+    console.error("Error during Comment:", error);
   }
 };
 
