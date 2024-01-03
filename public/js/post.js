@@ -32,7 +32,7 @@ const getPost = async () => {
 
     console.log(currentUserId);
     console.log(postData);
-    if (currentUserId === postData.created_by) {
+    if (parseInt(currentUserId) === parseInt(postData.created_by)) {
       const deletePostButton = document.createElement("button");
       deletePostButton.textContent = "Delete Post";
       deletePostButton.onclick = deletePost;
