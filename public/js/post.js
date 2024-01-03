@@ -28,6 +28,7 @@ const getPost = async () => {
     console.log(userData);
     console.log("hello");
     console.log(currentUserId === postData.created_by);
+    console.log(postData.created_by);
 
     console.log(currentUserId);
     console.log(postData);
