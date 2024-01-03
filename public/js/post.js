@@ -52,8 +52,7 @@ const getPost = async () => {
         "px-4",
         "py-2",
         "rounded-md",
-        "m-2",
-        "w-4/5"
+        "m-2"
       );
       document
         .getElementById("updatePostContainer")
@@ -143,6 +142,8 @@ const updatePostForm = async () => {
   }
   updateTitle.value = title.textContent;
   updateContent.value = content.textContent;
+
+  updateContent.classList.add("w-4/5", "h-40");
 
   title.parentNode.replaceChild(updateTitle, title);
   content.parentNode.replaceChild(updateContent, content);
