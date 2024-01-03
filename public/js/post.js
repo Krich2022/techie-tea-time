@@ -27,6 +27,7 @@ const getPost = async () => {
     const userData = await user.json();
     console.log(userData);
     console.log("hello");
+    console.log(currentUserId === postData);
 
     console.log(currentUserId);
     console.log(postData);
