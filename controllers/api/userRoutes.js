@@ -69,4 +69,17 @@ router.post("/logout", (req, res) => {
   }
 });
 
+router.get("/name/:id", async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.params.id);
+    if (!userData) {
+      res.status(404).json({ message: "User not found" }).end();
+    }
+    res.status(200).json(userData.name);
+  } catch (err) {
+    console.err(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
