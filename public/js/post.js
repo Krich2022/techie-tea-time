@@ -163,8 +163,8 @@ const updatePost = async () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        title: document.getElementById("updateTitle").value,
-        content: document.getElementById("updateContent").value,
+        title: document.getElementById("title").value,
+        content: document.getElementById("description").value,
       }),
     });
 
