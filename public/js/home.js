@@ -1,33 +1,23 @@
-var searchVar = document.getElementById("searchButton");
-var inputVar = document.getElementById("inputField");
+const showPost = (e) => {
+  window.location.href = `/post/${e}`;
+};
+const getAllPosts = async () => {
+  const event = await fetch("/api/posts", {
+    method: "GET",
+  });
+  const postData = await post.json();
 
-searchVar.addEventListener("click", searchClick);
+  for (i = 0; i < postData.length; i++) {
+    const postObj = postData[i];
+    const postHtml = `<div
+          class="bg-gray-200 p-4 rounded cursor-pointer"
+          onclick="showEvent(${postObj.id})"
+        >
+          <h2>${postObj.title}</h2>
+          <p id="desc">${postObj.content}</p>
+        </div>`;
+    document.getElementById("postContainer").innerHTML += postHtml;
+  }
+};
 
-function showEvent(e) {
-  window.location.href = `/event/${e}`;
-}
-
-function searchClick() {
-  var searchText = inputVar.value;
-  console.log(searchText, "Search");
-  fetch(`/api/search/${searchText}`)
-    .then((response) => response.json())
-    .then((results) => {
-      console.log(results);
-      for (let i = 0; i < results.length; i++) {
-        const eventObj = results[i];
-        const [endDate, timeEnd] = eventObj.event_end.split("T");
-        const [startDate, timeStart] = eventObj.event_start.split("T");
-        const eventHtml = `<div onclick="showEvent(${eventObj.id})" class="bg-gray-200 p-4 rounded cursor-pointer">
-                        <h2>${eventObj.event_name}</h2>
-                        <p id="desc">${eventObj.event_desc}</p>
-                        <p>Start: ${startDate} End: ${endDate}</p>
-                    </div>`;
-        const element = (document.getElementById("searchContainer").innerHTML +=
-          eventHtml);
-      }
-    })
-    .catch((error) => {
-      console.log("Err", error);
-    });
-}
+getAllEvent();

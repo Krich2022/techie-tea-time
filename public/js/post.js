@@ -38,7 +38,7 @@ const getPost = async () => {
     document.getElementById("title").textContent = postData.title;
 
     const descriptionElement = document.getElementById("description");
-    descriptionElement.innerHTML = `<p>${postData.content}<br><br>-${userData}`;
+    descriptionElement.innerHTML = `<p>${postData.content}<br><br>-${userData}</p>`;
 
     let commentSection = "";
     for (let i = 0; i < commentData.length; i++) {
@@ -51,7 +51,7 @@ const getPost = async () => {
       }
 
       const userName = await name.json();
-      commentSection += `<div><p>${commentData[i].content}<br><br>-${userName}</p></div>`;
+      commentSection += `<p class="mb-4">${commentData[i].content}<br>-${userName}</p>`;
     }
 
     document.getElementById("commentSection").innerHTML = commentSection;
@@ -64,7 +64,7 @@ const commentToPost = async (e) => {
   e.preventDefault();
 
   try {
-    const response = await fetch(`/api/post/${postId}`, {
+    const response = await fetch(`/api/comment/${postId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

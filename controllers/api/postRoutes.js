@@ -11,6 +11,25 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/user-posts", async (req, res) => {
+  try {
+    const userPost = await Post.findAll({
+      where: {
+        created_by: req.session.user_id,
+      },
+    });
+
+    if (!userPost.ok) {
+      res.status(404).json({ message: "No Posts Found" });
+      return;
+    }
+
+    res.status(200).json(userPost);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get("/post-by-id/:id", async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id);
