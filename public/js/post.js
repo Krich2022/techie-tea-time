@@ -52,7 +52,8 @@ const getPost = async () => {
         "px-4",
         "py-2",
         "rounded-md",
-        "m-2"
+        "m-2",
+        "w-4/5"
       );
       document
         .getElementById("updatePostContainer")
