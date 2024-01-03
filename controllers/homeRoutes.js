@@ -31,9 +31,9 @@ router.get("/dashboard", async (req, res) => {
   }
 });
 
-router.get("/event/*", async (req, res) => {
+router.get("/post/*", async (req, res) => {
   try {
-    res.render("event", {
+    res.render("post", {
       logged_in: req.session.logged_in,
       eventById: true,
     });
@@ -55,7 +55,7 @@ router.get("/home", async (req, res) => {
 
 router.get("/create", async (req, res) => {
   try {
-    res.render("eventForm", {
+    res.render("postForm", {
       logged_in: req.session.logged_in,
       createEvent: true,
     });
