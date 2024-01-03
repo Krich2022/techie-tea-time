@@ -20,22 +20,24 @@ const getAllPosts = async () => {
 
     for (let i = 0; i < postData.length; i++) {
       const postObj = postData[i];
+      const name = await fetch(`/api/user/name/${postObj.created_by}`, {
+        method: "GET",
+      });
 
-      const postDiv = document.createElement("div");
-      postDiv.classList.add("bg-gray-200", "p-4", "rounded", "cursor-pointer");
-      postDiv.addEventListener("click", () => showPost(postObj.id));
+      if (!name.ok) {
+        throw new Error("Failed to fetch user name");
+      }
 
-      const titleElement = document.createElement("h2");
-      titleElement.textContent = postObj.title;
+      const userName = await name.json();
 
-      const contentElement = document.createElement("p");
-      contentElement.id = "desc";
-      contentElement.textContent = postObj.content;
+      const postHtml = `
+        <div class="bg-gray-200 p-4 rounded cursor-pointer" onclick="showPost(${postObj.id})">
+          <h2>${postObj.title}</h2>
+          <p id="desc">${postObj.content}<br><br>-${userName}</p>
+        </div>
+      `;
 
-      postDiv.appendChild(titleElement);
-      postDiv.appendChild(contentElement);
-
-      postContainer.appendChild(postDiv);
+      postContainer.innerHTML += postHtml;
     }
   } catch (error) {
     console.error("Error during fetching posts:", error);
