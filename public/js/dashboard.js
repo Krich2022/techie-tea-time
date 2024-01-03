@@ -12,7 +12,7 @@ const getAllPosts = async () => {
     const postObj = postData[i];
     const postHtml = `<div
           class="bg-gray-200 p-4 rounded cursor-pointer"
-          onclick="showEvent(${postObj.id})"
+          onclick="showPost(${postObj.id})"
         >
           <h2>${postObj.title}</h2>
           <p id="desc">${postObj.content}</p>
