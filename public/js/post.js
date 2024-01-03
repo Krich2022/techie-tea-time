@@ -132,7 +132,7 @@ const updatePostForm = async () => {
   const content = document.getElementById("description");
 
   const updateTitle = document.createElement("input");
-  const updateContent = document.createElement("input");
+  const updateContent = document.createElement("textarea");
 
   for (const attribute of title.attributes) {
     updateTitle.setAttribute(attribute.name, attribute.value);
@@ -140,8 +140,8 @@ const updatePostForm = async () => {
   for (const attribute of content.attributes) {
     updateContent.setAttribute(attribute.name, attribute.value);
   }
-  updateTitle.textContent = title.textContent;
-  updateContent.textContent = updateContent.textContent;
+  updateTitle.value = title.textContent;
+  updateContent.value = content.textContent;
 
   title.parentNode.replaceChild(updateTitle, title);
   content.parentNode.replaceChild(updateContent, content);
@@ -171,7 +171,6 @@ const updatePost = async () => {
     }
   } catch (err) {
     console.error(err);
-    // Handle the error appropriately, for example, show a user-friendly message
   }
 };
 
