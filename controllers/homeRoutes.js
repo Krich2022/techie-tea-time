@@ -35,7 +35,7 @@ router.get("/post/*", async (req, res) => {
   try {
     res.render("post", {
       logged_in: req.session.logged_in,
-      eventById: true,
+      postById: true,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -46,7 +46,7 @@ router.get("/home", async (req, res) => {
   try {
     res.render("home", {
       logged_in: req.session.logged_in,
-      search: true,
+      home: true,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -57,7 +57,7 @@ router.get("/create", async (req, res) => {
   try {
     res.render("postForm", {
       logged_in: req.session.logged_in,
-      createEvent: true,
+      createPost: true,
     });
   } catch (err) {
     res.status(500).json(err);
