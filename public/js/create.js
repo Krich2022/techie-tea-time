@@ -3,7 +3,7 @@ const postContent = document.getElementById("postContent");
 const postSubmit = document.getElementById("postSubmit");
 
 const createEvent = async (postTitle, postContent) => {
-  const response = await fetch("/api/events", {
+  const response = await fetch("/api/post", {
     method: "POST",
     body: JSON.stringify({
       title: postTitle,
