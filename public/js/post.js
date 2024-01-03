@@ -32,7 +32,12 @@ const getPost = async () => {
       deletePostButton.onclick = deletePost;
       deletePostButton.id = "deletePost";
       deletePostButton.classList.add(
-        "bg-blue-500 text-white px-4 py-2 rounded-md m-2"
+        "bg-blue-500",
+        "text-white",
+        "px-4",
+        "py-2",
+        "rounded-md",
+        "m-2"
       );
       document
         .getElementById("deletePostContainer")
@@ -42,7 +47,12 @@ const getPost = async () => {
       updatePostButton.id = "updatePost";
       updatePostButton.onclick = updatePostForm;
       updatePostButton.classList.add(
-        "bg-blue-500 text-white px-4 py-2 rounded-md m-2"
+        "bg-blue-500",
+        "text-white",
+        "px-4",
+        "py-2",
+        "rounded-md",
+        "m-2"
       );
       document
         .getElementById("updatePostContainer")
