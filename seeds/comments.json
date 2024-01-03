@@ -43,5 +43,25 @@
     "content": "Hiking is such a great way to connect with nature. Any recommendations for scenic trails?",
     "user_id": 2,
     "post_id": 3
+  },
+  {
+    "content": "Your travel stories are always fascinating! I'm curious, which destination is next on your list?",
+    "user_id": 1,
+    "post_id": 4
+  },
+  {
+    "content": "I've never tried rock climbing, but your post has me intrigued! Any beginner-friendly spots you recommend?",
+    "user_id": 2,
+    "post_id": 4
+  },
+  {
+    "content": "The photo in your post is breathtaking! Where was it taken, and what inspired you to capture that moment?",
+    "user_id": 3,
+    "post_id": 4
+  },
+  {
+    "content": "I'm a fan of outdoor activities, and your post about camping caught my eye! Any tips for a memorable camping experience?",
+    "user_id": 1,
+    "post_id": 4
   }
 ]
