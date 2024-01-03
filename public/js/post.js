@@ -25,18 +25,15 @@ const getPost = async () => {
     }
 
     const userData = await user.json();
-    console.log(userData);
-    console.log("hello");
-    console.log(currentUserId === postData.created_by);
-    console.log(postData.created_by);
 
-    console.log(currentUserId);
-    console.log(postData);
     if (parseInt(currentUserId) === parseInt(postData.created_by)) {
       const deletePostButton = document.createElement("button");
       deletePostButton.textContent = "Delete Post";
       deletePostButton.onclick = deletePost;
       deletePostButton.id = "deletePost";
+      deletePostButton.classList.add(
+        "bg-blue-500 text-white px-4 py-2 rounded-md m-2"
+      );
       document
         .getElementById("deletePostContainer")
         .appendChild(deletePostButton);
@@ -44,6 +41,9 @@ const getPost = async () => {
       updatePostButton.textContent = "Update Post";
       updatePostButton.id = "updatePost";
       updatePostButton.onclick = updatePostForm;
+      updatePostButton.classList.add(
+        "bg-blue-500 text-white px-4 py-2 rounded-md m-2"
+      );
       document
         .getElementById("updatePostContainer")
         .appendChild(updatePostButton);
@@ -130,6 +130,8 @@ const updatePostForm = async () => {
   for (const attribute of content.attributes) {
     updateContent.setAttribute(attribute.name, attribute.value);
   }
+  updateTitle.textContent = title.textContent;
+  updateContent.textContent = updateContent.textContent;
 
   title.parentNode.replaceChild(updateTitle, title);
   content.parentNode.replaceChild(updateContent, content);
